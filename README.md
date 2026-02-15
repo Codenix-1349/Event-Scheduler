@@ -1,6 +1,6 @@
-# 📅 EVENTLY.
+# 📅 EVENTLY. 🏗️ 🚜
 
-![Under Construction](https://img.shields.io/badge/STATUS-UNDER_CONSTRUCTION-orange?style=for-the-badge&logo=constructionworker)
+![Under Construction](https://img.shields.io/badge/STATUS-UNDER_CONSTRUCTION-orange?style=for-the-badge&logo=construction)
   
 > Modern React event management platform with full CRUD functionality, token-based authentication, and premium UI design.
 

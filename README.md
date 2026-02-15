@@ -21,13 +21,28 @@ The application integrates with a local REST API to provide persistent data mana
 
 ## 🖼 UI Preview
 
-*Add your screenshots here to showcase the "remastered" look!*
-
 <table>
   <tr>
     <td><b>🏠 Discovery</b><br/><i>Hero & Event Lineup</i></td>
-    <td><b>🔐 Security</b><br/><i>Protected Routes</i></td>
-    <td><b>✨ Creation</b><br/><i>Responsive Forms</i></td>
+    <td><b>🔐 Security</b><br/><i>Authentication Flow</i></td>
+    <td><b>✨ Logistics</b><br/><i>Event Detail View</i></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="420"
+           alt="Discovery - Side overview"
+           src="https://github.com/user-attachments/assets/19076182-bce0-488f-a4ce-3ac916bc5d63" />
+    </td>
+    <td>
+      <img width="420"
+           alt="Authentication"
+           src="https://github.com/user-attachments/assets/8fca35fc-5a14-45dc-9027-6f495bc38f89" />
+    </td>
+    <td>
+      <img width="420"
+           alt="Event Details"
+           src="https://github.com/user-attachments/assets/e745f7c1-396c-4710-ad4b-cb272f9ad7d9" />
+    </td>
   </tr>
 </table>
 

@@ -1,4 +1,4 @@
-# 📅 EVENTLY. 🏗️ 🚜
+# 📅 EVENTLY 🏗️ 🚜
 
 ![Under Construction](https://img.shields.io/badge/STATUS-UNDER_CONSTRUCTION-orange?style=for-the-badge&logo=construction)
   
@@ -15,7 +15,7 @@
 
 ## 📖 Overview
 
-**EVENTLY.** is a professional event scheduling application that bridges the gap between community creators and explorers. 
+**EVENTLY** is a professional event scheduling application that bridges the gap between community creators and explorers. 
 
 The application integrates with a local REST API to provide persistent data management and demonstrates advanced React patterns including Context-based authentication, route protection guards, and a highly polished UI built with the cutting-edge Tailwind CSS v4 and daisyUI.
 

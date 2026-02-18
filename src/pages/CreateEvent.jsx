@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import { Calendar, MapPin, Type, AlignLeft, Send, AlertCircle, CheckCircle } from "lucide-react";
+import { Calendar, MapPin, Type, AlignLeft, Send, AlertCircle, CheckCircle, Clock } from "lucide-react";
 
 const CreateEvent = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     date: "",
+    time: "",
     location: "",
     category: "General",
   });
@@ -19,6 +20,7 @@ const CreateEvent = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    console.log(`Input changed: ${e.target.name} = ${e.target.value}`);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -28,8 +30,14 @@ const CreateEvent = () => {
     setLoading(true);
 
     try {
-      // FR015 & FR016: POST /api/events with token in headers
-      await axios.post("http://localhost:3000/api/events", formData, {
+      const payload = {
+        ...formData,
+        date: `${formData.date}T${formData.time}:00`
+      };
+      // Remove the separate time and category fields from payload before sending
+      const { time, category, ...finalData } = payload;
+
+      await axios.post("http://localhost:3000/api/events", finalData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,7 +45,9 @@ const CreateEvent = () => {
       setSuccess(true);
       setTimeout(() => navigate("/"), 2000);
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to create event. Please try again.");
+      console.error("Event creation failed:", err);
+      // Backend returns errors in .data.error
+      setError(err.response?.data?.error || err.response?.data?.message || "Failed to create event. Is the API running?");
     } finally {
       setLoading(false);
     }
@@ -92,7 +102,7 @@ const CreateEvent = () => {
                   type="text"
                   name="title"
                   placeholder="The Ultimate Workshop"
-                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold tracking-tight bg-base-200/50"
+                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold tracking-tight w-full"
                   value={formData.title}
                   onChange={handleChange}
                   required
@@ -107,7 +117,7 @@ const CreateEvent = () => {
                 </label>
                 <textarea
                   name="description"
-                  className="textarea textarea-bordered textarea-lg h-40 focus:textarea-primary rounded-2xl font-medium bg-base-200/50 leading-relaxed"
+                  className="textarea textarea-bordered textarea-lg h-40 focus:textarea-primary rounded-2xl font-medium leading-relaxed w-full"
                   placeholder="What makes this event special?"
                   value={formData.description}
                   onChange={handleChange}
@@ -118,14 +128,30 @@ const CreateEvent = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-black tracking-tight text-lg flex gap-2 items-center">
-                    <Calendar className="w-5 h-5 opacity-40" /> WHEN?
+                    <Calendar className="w-5 h-5 opacity-40" /> WHICH DAY?
                   </span>
                 </label>
                 <input
-                  type="datetime-local"
+                  type="date"
                   name="date"
-                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold bg-base-200/50"
+                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold w-full"
                   value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-black tracking-tight text-lg flex gap-2 items-center">
+                    <Clock className="w-5 h-5 opacity-40" /> WHAT TIME?
+                  </span>
+                </label>
+                <input
+                  type="time"
+                  name="time"
+                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold w-full"
+                  value={formData.time}
                   onChange={handleChange}
                   required
                 />
@@ -141,7 +167,7 @@ const CreateEvent = () => {
                   type="text"
                   name="location"
                   placeholder="A sleek venue or link"
-                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold bg-base-200/50"
+                  className="input input-bordered input-lg focus:input-primary rounded-2xl font-bold w-full"
                   value={formData.location}
                   onChange={handleChange}
                   required

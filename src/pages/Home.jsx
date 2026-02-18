@@ -53,7 +53,8 @@ const Home = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/events");
-        const sortedEvents = response.data.sort((a, b) => new Date(a.date) - new Date(b.date));
+        const eventsData = response.data.results || [];
+        const sortedEvents = eventsData.sort((a, b) => new Date(a.date) - new Date(b.date));
         setEvents(sortedEvents);
       } catch (err) {
         setError("Failed to load events. Is the API running?");

@@ -1,4 +1,4 @@
-# 📅 EVENTLY. 🏗️ 🚜
+# 📅 EVENTLY 🏗️ 🚜
 
 ![Under Construction](https://img.shields.io/badge/STATUS-UNDER_CONSTRUCTION-orange?style=for-the-badge&logo=construction)
   
@@ -15,7 +15,7 @@
 
 ## 📖 Overview
 
-**EVENTLY.** is a professional event scheduling application that bridges the gap between community creators and explorers. 
+**EVENTLY** is a professional event scheduling application that bridges the gap between community creators and explorers. 
 
 The application integrates with a local REST API to provide persistent data management and demonstrates advanced React patterns including Context-based authentication, route protection guards, and a highly polished UI built with the cutting-edge Tailwind CSS v4 and daisyUI.
 
@@ -119,12 +119,20 @@ ProtectedLayout (Access Granted)
 ## 🚀 Getting Started
 
 ### 1. The Backend
+<<<<<<< HEAD
 The API is located in the `events-api` directory.
 ```bash
 cd events-api
 npm install
 # Ensure .env is configured (already done for you)
 npm run dev
+=======
+This app requires the **Events API** running on port 3000.
+```bash
+# In your API directory
+npm install
+npm start
+>>>>>>> origin/main
 ```
 
 ### 2. The Frontend

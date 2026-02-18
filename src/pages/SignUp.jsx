@@ -5,7 +5,7 @@ import { UserPlus, Mail, Lock, User, AlertCircle } from "lucide-react";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -65,10 +65,10 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                name="username"
+                name="name"
                 placeholder="johndoe"
                 className="input input-bordered focus:input-primary rounded-xl font-medium"
-                value={formData.username}
+                value={formData.name}
                 onChange={handleChange}
                 required
               />
@@ -104,8 +104,12 @@ const SignUp = () => {
                 className="input input-bordered focus:input-primary rounded-xl font-medium"
                 value={formData.password}
                 onChange={handleChange}
+                minLength={8}
                 required
               />
+              <label className="label">
+                <span className="label-text-alt opacity-50 font-medium">Minimum 8 characters required</span>
+              </label>
             </div>
 
             <div className="form-control mt-8">

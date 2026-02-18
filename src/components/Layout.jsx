@@ -19,7 +19,7 @@ const Navbar = () => {
           <div className="bg-primary p-2 rounded-xl">
             <Calendar className="w-6 h-6 text-primary-content" />
           </div>
-          <span className="font-black tracking-tighter text-base-content">EVENTLY.</span>
+          <span className="font-black tracking-tighter text-base-content">EVENTLY</span>
         </Link>
       </div>
       <div className="flex-none gap-4">
@@ -72,9 +72,9 @@ const Layout = () => {
              <div className="bg-primary/10 p-1.5 rounded-lg">
                <Calendar className="w-4 h-4 text-primary" />
              </div>
-             <span className="font-bold tracking-tighter text-base-content">EVENTLY.</span>
+             <span className="font-bold tracking-tighter text-base-content">EVENTLY</span>
           </div>
-          <p>© 2026 Evently. Built for creators and communities.</p>
+          <p>© 2026 Evently Built for creators and communities.</p>
         </div>
       </footer>
     </div>

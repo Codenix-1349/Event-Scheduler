@@ -119,11 +119,20 @@ ProtectedLayout (Access Granted)
 ## 🚀 Getting Started
 
 ### 1. The Backend
+<<<<<<< HEAD
+The API is located in the `events-api` directory.
+```bash
+cd events-api
+npm install
+# Ensure .env is configured (already done for you)
+npm run dev
+=======
 This app requires the **Events API** running on port 3000.
 ```bash
 # In your API directory
 npm install
 npm start
+>>>>>>> origin/main
 ```
 
 ### 2. The Frontend
